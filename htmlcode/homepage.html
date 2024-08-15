@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Storage Service - Login</title>
+    <style>
+        html{
+            background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIQEhAPEBAPDw8VDw8PDw8QFQ8PEA8QFRUWFhUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFxAQFysdFR0tLS0tLSsrLS0rLS0tLS0tKy0tLS03LS0tLS0tLSsrLS0tLS0tLS0tKy0tLS0tLSstN//AABEIAJYBTwMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAACAwABBAUGB//EADEQAAICAQIFAQcDBQEBAAAAAAABAgMRBCEFMUFRYRITUnGBkaGxQuHwFCLB0fFiFf/EABkBAAMBAQEAAAAAAAAAAAAAAAECAwAEBf/EAB8RAQEBAQADAQEBAQEAAAAAAAABAhEDEiETMUFRBP/aAAwDAQACEQMRAD8A+JEIQYqBIpBILVCvSGiBAvBMDfSAzcbocFpBYLM3USC9JIoPAS9D6SnEMgQ6XEP1FYKwYT6TXBZMlaNunKYR2YoAezwaYwYyNeSvqj78Zao7jJVmqNBfsfA0wS+RjlXtyETpN86WIsrFuT52xyhsJ9B0nXsLjT4EuFJtkUAZwNtlRnsrYLkc66xtAND5QKlEnxWVnaKwNcSmheG6ArAeCmbjdCRllMAhZCBGEBTCYLQGUQjRAChZRaCy0WUEggIhCGBaKcQ0WEOlJBJBNFpG43VJFlqIfoDwvS0FgKNZbQeN0CgMhTkKI6mKyhpkt0OrTm2nTrngKFawbNHDKOnGHJvyVnVOTTXpx8dO2zTVQWmHPryF16cltWOhvrgKuwU9Uva9c2en6mWytdjpP7C51KW5O5VmuOXKoZ7PBqnVgVIT14f26zWQM04m+UTLZATUUxpisgJlA2yiKsiSuXRNMkoi2h80BglYpKU4gtDWgGgcN0lopjWhbFppQoIEsAqZReCjCpghFNAZRZRaMIkEgUEglWQhAstBJgoJBKgSYGS0ZjEwlIVkiYehxoyUwYMNLISirQ+uHIkKh8IMrnKWtNlHL7HVorwcrTxOnCb27f4OrDi8jaoYGPkXTDOB06t/Bfjm6RFvsLnV1ZtjWS2nKxubgeznPGBWcdDpPT7AvTpoHqaac61GKVTZ1LKBcoCXKmdOdKAiyB0LDLZEnYrmsMkZ7Ua5oz2EdOjFY5IWzROIpolYvKW0BIa0LkJTQtgSQxoFoU8KZAvSRxBweqBZbKAKsELKMIC0UWgCJBIAtMIDICgggJEZEgkglAohFyRXpM3ULiQKETAbXEdBYFQ2HQRTKemymxDJyM8UW5FpfiFz9dChbdv8mii048LZckdDS1PruUzrv8S3jn9djQW/3Z3xv8Dr0/3b9OhwabfTt0x9wqOIODcVyz8vkdE1I5NYt/j0lcVnuOspRzeGan15bW6Zqt1m7wtikvxC5vSb4467GdyxzY3UWp/Q5dk8vdvH2+QtqmZ1qxncVYgovtuLlLfDAYi2BksgdGUTNZETUUzXOtgY7I4OjajJbEjqOjGmGUQJI0TQmSI2OmUiaFyQ2bFTZKqQpgstyKEOiRTDBZmLZC5AMFPEYLLyCxRii0UWjCJF4KQSCCJBRREg4oJbVpBKJEhkUNIS0LiD6RrADYynAuIcVsRQNwOiiNgLUTTRHkUyTVOiiezZphDYP0ot6ua7Jppxh4OhRHqJhyXxNdUMIpmJb11c4r/gKozj088rHcbXvz+QyOU87JIpxPvDtPKVTTfJ4Xn9jX7dNyS7czNKafVc+fMuCWcrljd+B4lfqrJZbyKlWs9f3GKOXJ9EKnLyCjF8viDZF8+pIxTx6luNl1XQzfxkd+NmLlqEBq4d8+Gc+xNdSWtWL5xK03TXQx2TFrL58iShtnfBK66vnMhc5CJSJaxEpkbp0ZyubESZJTAJWqSIy4lqASgAeqBYTAZmgGAw8gsWngMlFsoBkRCIgGEmGhaGIaBRxDiBEOIxKagkhakFGQxBEwRMYkGB0OAoF4IhuB0cVk1aWPQVVA36SrcpjP1Hya5DlU/kT2Z1YU5Sz2Cr0nfzsdXo4v0c2ut/Q3UV5+Y7+m7IKFPcaZ4W76KWnSW2/wABFkH1XbHI3RXTBepiop7eofift9cpZy4527orTarDazlvb9xs0+SQqGka3awT+/4r859dCEMLC5vDZnvqedjZo16nvvjCLdWZNfZ9ynPiXeVzYxcd3v5HZlJJ/wAY/U09MY6bGiihtY/AJBuv9ca2htmezT7PPP8AJ6N0Jczla+tNvH/BdYPjfXBe3JExsjRZWLUPqc/HTNOfdX2Mllex1ra+xnlQS1h0Z8jlegOMDa6QXWT9FPdnSKYyaAkCwZSZAMOYqQlUigGy2DkUyMEtsrIDKLRRYGRMZFgJBpDQKZEYhUUGhiURIlFpGAyA1SFQQ2EB4SjTyEoFxgPhApInbwVETbp8iqKzo0UMvjLm8mnR0bzsdSihc2Z9BpsYOxTpjrzHn719+ErTIXboju6fS7eR/wDR56GuoEzp5qvSsKeiZ6mnhuXuh8+F5xsLfJmGnj3XiHoVzFS0rb5Pwj3keCrqsgT4VGP6Qfpk357jyENO8bLHfuwVpsPL7HrP/nLmkZ7uG/QabyS41HmdVWmk0OpeFg6d/D1gzvSYQ0Jf+VzNZM4mpbPQXaV7mC/Ri6nVMakeflPPQHGdzpW6XBmtp+pG5rpmowuIizmap0tMCVZOxWVkkhM0a5wMtksE9Ti2b1nmhMmHZIzyZDVdGYGchMpBTFyROqyKbBLaKFOhWSMoDCSDUQEwlILUaiGoAKYSsGJemxrYapYtWDI2jThL0a077DI6WXYGNo2N48mSW6HDSS7D4aKfu/gXG/4joXlZMpaumirQT938Gynhc3+kzU6jHU3U6vyXzMubd21afhM/dOrpuFT91nPo1/n7nRo4l5L5mXJu7dbS8On7rOxpdHJfpOFRxfz9zpafjP8A6G13/E8879dynSP3TbTo32ORRxpbbnRo4sveObU26sa8bpVaVmmGj6mCviy940Q4ou5DU26s68bZ/T/AXLR+EAuI+QJcU8iSbPdYSei7JGa3ReEHPiq977mPUcWx+r7lc52jvXjBZoPCMF/Dn2Jdxpe8znX8aXvM6M525d68Yr+Gy7HMv4XP3WVqOL5/UzmX8W8v6lvs/tQ52/Iddw6funOu4bP3RN/FvLMV3E/It1lXONnX6GfunOu0ti/SwbdfnqZLNX5Ia1l04xtLqbPdMdmnn2DnqvIieoIauXViahctPLsKlQ+wcrxUriN9Vp7AlU+wt1sOVot2CXik6BwYLgwnMFyF+HnQuJWC3IrIoqLKIYRJlpgkMBiYSkKTCTD0OHKQcZmdMJMaUvGqNgcbjImGmNNFuW2OoY6Gpfc56YcWPN1O4jqV6tmqrWHGhIbG0pnyVLXij0FWtZtp138yeahcPhf5L58rn14Y9VTxJ9/ubK+JvrLPzPIQ1I+Gr8lJ5UL4Hs6uLPln7mmPGX3+54ha7sNhr/L85/A36Qn42PbLjXkGfFebbZ45cQ6/gXZxDO6fwN75b8tPVWcWznf8GS/ir332+WDzU9f8Rdmt9X0+oP1hp4K7d3FH33MdnEX3OJPVfzmIeo87P8k75ls/+d1rdc++PJls1r6s5j1DFyuJXyr58EjbbqTLZeZ5WP5C3MldrZ8chsrmLlaLcgJE7pWZHKwBzAbAbEtPINyBcgWwWxemkE5A5KyQHRTJRCgCsohDMhCyGZCZIQzLIiECwi0QgQokEmQgS0SkMiQg0LRYGxeCEHhKNT5Br/ZCDQlF7T8EVr7vOSED1uQyFz+42Fj7kINKnZFe2YLsx/OvzIQ3a0kC7Pjyz8gJTfd/XBCAtNIX6uv7i5zy8fHJCCU8gJP/AGC2QgtOFvAtshBaaKYDZCApoHJTKIKKmUQgBUUWQAqIQhmQhCGF/9k=");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        body {
+            background-color: none;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login to Your Cloud Storage Account</h2>
+        <form action="#" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>

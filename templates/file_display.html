@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repository File Listing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f8fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e1e4e8;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .header .branches {
+            font-size: 14px;
+            color: #586069;
+        }
+        .file-list {
+            list-style: none;
+            padding: 0;
+        }
+        .file-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #e1e4e8;
+        }
+        .file-list li:last-child {
+            border-bottom: none;
+        }
+        .file-list .file-name {
+            display: flex;
+            align-items: center;
+        }
+        .file-list .file-name img {
+            margin-right: 10px;
+        }
+        .file-list .commit-message {
+            color: #586069;
+        }
+        .file-list .timestamp {
+            color: #586069;
+        }
+        .file-list .commit-count {
+            color: #0366d6;
+        }
+        .file-icon {
+            width: 16px;
+            height: 16px;
+        }
+        header {
+            background-color: #4285F4;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header >
+        <center><h1>Cloud Drive</h1></center><br>
+        <div class="row justify-content-end">
+            <a href="/cloud/logout" class="btn btn-danger w-auto">log out</a>
+         </div>
+        
+            
+    </header>
+    <div class="container">
+        <div class="row justify-content-end">
+            <input type="text" name="folder_name" id="" class="w-auto mr-25" placeholder="folder name">
+            <button class="w-auto ">create folder</button>
+        </div>
+            <br>
+        <div class="row justify-content-end">
+            <input type="file" name="files" id="" class="w-auto"><input  class="w-auto" type="submit" value="upload file">
+        </div>
+        <br>
+        <div class="row justify-content-end">
+            <a href="/cloud/drivefiles/">diaplay</a>
+        </div>
+        <div class="header">
+            
+            <div>
+                <strong>develop</strong> &nbsp;&bull;&nbsp; <span class="branches">3 Branches &nbsp;&bull;&nbsp; 90 Tags</span>
+            </div>
+            <div>
+                <span class="commit-count">1,858 Commits</span>
+            </div>
+        </div>
+        <ul class="file-list">
+            <li>
+                <div class="file-name">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/folder-invoices.png" class="file-icon" alt="folder">
+                    <a href="#">.github/ISSUE_TEMPLATE</a>
+                </div>
+                <div class="commit-message">Update issue templates</div>
+                <div class="timestamp">6 years ago</div>
+            </li>
+            <li>
+                <div class="file-name">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/folder-invoices.png" class="file-icon" alt="folder">
+                    <a href="#">app</a>
+                </div>
+                <div class="commit-message">fix play bug</div>
+                <div class="timestamp">5 years ago</div>
+            </li>
+            <li>
+                <div class="file-name">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/folder-invoices.png" class="file-icon" alt="folder">
+                    <a href="#">gradle</a>
+                </div>
+                <div class="commit-message">v7.0.5</div>
+                <div class="timestamp">5 years ago</div>
+            </li>
+            <li>
+                <div class="file-name">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/folder-invoices.png" class="file-icon" alt="folder">
+                    <a href="#">jiaozivideoplayer</a>
+                </div>
+                <div class="commit-message">add audio form</div>
+                <div class="timestamp">5 years ago</div>
+            </li>
+            <li>
+                <div class="file-name">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/document--v1.png" class="file-icon" alt="file">
+                    <a href="#">.gitignore</a>
+                </div>
+                <div class="commit-message">gitignore</div>
+                <div class="timestamp">6 years ago</div>
+            </li>
+            <li>
+                <div class="file-name">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/document--v1.png" class="file-icon" alt="file">
+                    <a href="#">LICENSE</a>
+                </div>
+                <div class="commit-message">license year</div>
+                <div class="timestamp">7 years ago</div>
+            </li>
+            <li>
+                <div class="file-name">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/document--v1.png" class="file-icon" alt="file">
+                    <a href="#">README.md</a>
+                </div>
+                <div class="commit-message">Update README.md</div>
+                <div class="timestamp">5 years ago</div>
+            </li>
+            <li>
+                <div class="file-name">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/document--v1.png" class="file-icon" alt="file">
+                    <a href="#">build.gradle</a>
+                </div>
+                <div class="commit-message">upgrade as</div>
+                <div class="timestamp">5 years ago</div>
+            </li>
+            <li>
+                <div class="file-name">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/document--v1.png" class="file-icon" alt="file">
+                    <a href="#">gradlew</a>
+                </div>
+                <div class="commit-message">project init</div>
+                <div class="timestamp">9 years ago</div>
+            </li>
+            <li>
+                <div class="file-name">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/document--v1.png" class="file-icon" alt="file">
+                    <a href="#">gradlew.bat</a>
+                </div>
+                <div class="commit-message">project init</div>
+                <div class="timestamp">9 years ago</div>
+            </li>
+            <li>
+                <div class="file-name">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/document--v1.png" class="file-icon" alt="file">
+                    <a href="#">settings.gradle</a>
+                </div>
+                <div class="commit-message">change package name</div>
+                <div class="timestamp">7 years ago</div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

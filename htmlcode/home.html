@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Drive</title>
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4285F4;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* File Card styles */
+        .file-card {
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .file-card img {
+            max-width: 100px;
+            max-height: 100px;
+            display: block;
+            margin: 0 auto 10px;
+        }
+        .file-card h3 {
+            margin: 0;
+            font-size: 18px;
+            text-align: center;
+        }
+        /* Responsive styles */
+        @media (min-width: 768px) {
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .file-card {
+                width: 30%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Drive</h1>
+    </header>
+    <div class="container">
+        <!-- File Cards -->
+        <div class="file-card">
+            <img src="https://via.placeholder.com/150" alt="File">
+            <h3>Document</h3>
+        </div>
+        <div class="file-card">
+            <img src="https://via.placeholder.com/150" alt="File">
+            <h3>Image</h3>
+        </div>
+        <div class="file-card">
+            <img src="https://via.placeholder.com/150" alt="File">
+            <h3>Spreadsheet</h3>
+        </div>
+        <!-- Add more file cards as needed -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f8fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e1e4e8;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .header .branches {
+            font-size: 14px;
+            color: #586069;
+        }
+        .file-list {
+            list-style: none;
+            padding: 0;
+        }
+        .file-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #e1e4e8;
+        }
+        .file-list li:last-child {
+            border-bottom: none;
+        }
+        .file-list .file-name {
+            display: flex;
+            align-items: center;
+        }
+        .file-list .file-name img {
+            margin-right: 10px;
+        }
+        .file-list .commit-message {
+            color: #586069;
+        }
+        .file-list .timestamp {
+            color: #586069;
+        }
+        .file-list .commit-count {
+            color: #0366d6;
+        }
+        .file-icon {
+            width: 16px;
+            height: 16px;
+        }
+        header {
+            background-color: #4285F4;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        .file-name:hover{
+            cursor: pointer;
+        }
+        
+    </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+
+        <header>
+            <center><h1>Cloud Drive</h1></center><br>
+            <div class="row justify-content-end">
+                <a href="/cloud/logout" class="btn btn-danger w-auto">log
+                    out</a>
+            </div>
+
+        </header>
+
+        <div class="container">
+
+            <br>
+
+            
+
+            <div class="header">
+                <div class="row justify-content-end">
+                    <form action="/cloud/create_folder" method="post">
+                        <input type="hidden" name="origin" value="{{origin}}">
+                        <input type="text" name="folder_name" 
+                        class="w-auto mr-25" placeholder="folder name">
+                        {% csrf_token %}
+                    <button class="w-auto " type="submit">create folder</button>
+                    </form>
+                </div>
+
+                <div class="row justify-content-end">
+                    <form action="/cloud/uplaodfile" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="hidden" name="origin" value="{{origin}}">
+                    <input type="file" name="file" id class="w-auto">
+                    <input
+                        class="w-auto" type="submit" value="upload file">
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="header ">
+               <div class="flex"> <strong>{{origin}}</strong></div>
+                <div class="row justify-content-end "><button
+                        class="btn btn-primary btn-sm w-auto m-2" onclick="download()">download</button><button
+                        class="btn btn-danger btn-sm w-auto m-2" onclick="delete_file()">file delete</button></div>
+            </div>
+
+            <ul class="file-list">
+
+                {% for flder in folder %}
+                <li>
+
+                    <div class="file-name w-100" onclick="document.getElementById('{{flder}}').submit()">
+                        <form action="/cloud/drivefiles/" id="{{flder}}" method="get">
+                        <img
+                            src="https://img.icons8.com/ios-filled/50/000000/folder-invoices.png"
+                            class="file-icon" alt="folder">
+                        {{flder}}
+                        <input type="hidden" name="path"
+                            value="{{origin}}/{{flder}}">
+
+
+                            
+                            
+                            
+                    </form>
+                    
+                    
+                    
+                    </div>
+                    <div class="timestamp">
+                        <form action="/cloud/del_folder" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="folder" value="{{origin}}/{{flder}}">
+                            <input type="hidden" name="origin" value="{{origin}}">
+                       <input type="submit" class="btn btn-danger btn-sm w-auto " value="delete">
+                        </form>
+                    </div>
+
+                </li>
+                {% endfor %}
+
+                {% for fle in files %}
+
+                <li>
+
+                    <a href="{{path}}/{{fle}}" class="w-100">
+                        <div class="file-name">
+                            <img
+                                src="https://img.icons8.com/ios-filled/50/000000/document--v1.png"
+                                class="file-icon" alt="folder">
+                            {{fle}}
+                        </div>
+                    </a>
+
+                    <div class="timestamp">
+                        <input class="form-check-input check" type="checkbox"
+                            name="file_download[]" value="{{path}}/{{fle}}">
+                            <input type="hidden" name="type[]"
+                            value="file">
+                    </div>
+                    
+
+                </li>
+
+                {% endfor %}
+
+            </ul>
+        </div>
+
+        <form action="/cloud/del_file" hidden id="flie_delete" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="path[]" id="del_file">
+            <input type="hidden" name="origin" value="{{origin}}">
+        </form>
+
+    </body>
+    <script>
+        link = window.location.origin;
+        docs = [];
+        var check = document.querySelectorAll("input[type='checkbox']")
+        function downloadURI(uri, name) {
+            var link = document.createElement("a");
+            link.download = name; // <- name instead of 'name'
+            link.href = uri;
+            link.click();
+            link.remove();
+        }
+        console.log(check)
+        check.forEach((ck,ind)=>{
+            ck.addEventListener("change",(e)=>{
+            if (e.target.checked) {
+                docs.push(e.target.value);
+                console.log(docs)
+            } else {
+                docs = docs.filter(d=>{return d!=e.target.value})
+                console.log(docs)
+            }
+        })
+        })
+
+        function download(){
+            if(docs.length == 0){
+                alert("please select files to download")
+            }else{
+                docs.forEach(d=>{
+                    downloadURI(link+"/"+d)
+                })
+                
+            }
+        }
+        function submitForm() {
+            const form = document.getElementById('checkboxForm');
+            const checkedItems = Array.from(form.elements['item'])
+                                    .filter(checkbox => checkbox.checked)
+                                    .map(checkbox => checkbox.value);
+            console.log(checkedItems); // This logs the list to the console. Replace with desired action.
+            
+            // To send data to a server, you can use fetch:
+            // fetch('your-server-endpoint', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(checkedItems)
+            // }).then(response => {
+            //     return response.json();
+            // }).then(data => {
+            //     console.log(data);
+            // }).catch(error => {
+            //     console.error('Error:', error);
+            // });
+        }
+
+        function delete_file(){
+           var inp = document.getElementById("del_file");
+           var form = document.getElementById("flie_delete");
+
+           inp.value = docs 
+
+           form.submit();
+
+        }
+        
+    </script>
+</html>

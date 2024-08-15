@@ -1,0 +1,49 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #24292e;
+    color: #fff;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    display: inline-block;
+}
+
+.navbar ul li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.navbar ul li a.active {
+    background-color: #0366d6;
+}
+
+.container {
+    margin: 20px auto;
+}
+
+.file-manager {
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 20px;
+    background-color: #f6f8fa;
+}

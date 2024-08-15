@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            width:100%;
+        }
+        .container {
+            
+            height: 100vh;
+            background-image: url("https://img.freepik.com/free-vector/abstract-geometric-wireframe-background_52683-59421.jpg?w=996&t=st=1719299083~exp=1719299683~hmac=6db62d74829985ab35a2c9982ce7131f18e076075da53a070c80cbf22529570f");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Adjust the alpha value for background opacity */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #060606;
+            color: #fff;
+            cursor: pointer;
+        }
+       
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    {% comment %} <link rel="stylesheet" href="/static/css/singup.css"> {% endcomment %}
+</head>
+<body>
+    <div class="container">
+        <div class="form-container ">
+        <form action="/cloud/create/" method="post" >
+            {% csrf_token %}
+            <h2>Sign Up</h2>
+            <label for="username">Email:</label>
+            <input type="email" id="username" name="uname" required>
+            <label for="email">Password:</label>
+            <input type="password" id="email" name="pass" required>
+            <br>
+            <button type="submit">Sign Up</button>
+        </form>
+        <br>
+            <center><b>OR</b></center>
+            <center>
+                <span>Already have an account </span><a href="/cloud/login/">login</a>
+            </center>
+        </div>
+    </div>
+</body>
+</html>

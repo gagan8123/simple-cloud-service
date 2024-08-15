@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Storage Service - Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container1 {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url("https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Adjust the alpha value for background opacity */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #060606;
+            color: #fff;
+            cursor: pointer;
+        }
+        .end{
+            display: flex;
+            justify-content: end;
+        }
+       span{
+        cursor: pointer;
+       }
+    </style>
+</head>
+<body>
+    <div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Subscribe to Our Newsletter</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="emailInput">Email address</label>
+                            <input type="email" class="form-control" id="emailInput" placeholder="Enter your email">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="subscribeButton">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container1">
+        <div class="form-container">
+            <h2>Login to Your Cloud Storage Account</h2>
+            <form action="/cloud/login/" method="post">
+            {% csrf_token %}
+                <input type="email" name="uname" placeholder="email" required>
+                <input type="password" name="pass" placeholder="Password" required>
+                <div class="w-100 end"><span data-toggle="modal" data-target="#emailModal">
+                   Forgot Password?
+                </span></div>
+                <input type="submit" value="Login">
+            </form>
+            
+            <br>
+            <center><b>OR</b></center>
+            <center>
+                <span>Dont have an account </span><a href="/cloud/signup/">signup</a>
+            </center>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+csrfmiddlewaretoken: UBdVGG9EYYc8uamAzyiCoHmMCliz6HTAdeF2ClGrGnP4csMRz1b2kQP1uKqV0jkf
+<Script>
+    function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+    
+     $(document).ready(function() {
+            $('#subscribeButton').click(function() {
+                //console.log(getCookie('csrfmiddlewaretoken'))
+                var email = $('#emailInput').val();
+                if (email) {
+                    link = "http://"+window.location.host+"/forgot";
+                    console.log(link);
+                    $.ajax({
+                url: link, // Replace with your server URL
+                type: 'GET',
+                data: { email: email }, // Send data as query parameters
+                dataType: 'json',
+                success: function(response) {
+                    console.log('Success:', response.res);
+                    alert(response.res);
+                    $('#emailModal').modal('hide'); // Hide the modal on success
+                },
+                error: function(xhr, status, error) {
+                    console.log(status)
+                    console.error('Error:', error);
+                    alert("unable to process");
+                }
+            });
+                } else {
+                    console.log(window.location.href)
+                    alert("email is empty")
+                }
+            });
+        });
+
+</Script>
+</html>
